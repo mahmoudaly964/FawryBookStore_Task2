@@ -9,7 +9,11 @@ public class BookStore {
     private Map<String, Book> inventory = new HashMap<>();
     
     public void addBook(Book book) {
+        if(book.getISBN()!=null && inventory.containsKey(book.getISBN())) {
+            throw new IllegalArgumentException("Book with this ISBN already exists");
+        }
         inventory.put(book.getISBN(), book);
+        System.out.println("book " + book.getTitle() + " added to the inventory successfully");
     }
     
     public Book getBook(String ISBN) {

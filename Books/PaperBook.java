@@ -32,7 +32,9 @@ public class PaperBook extends Book implements Buyable, Shippable {
             throw new IllegalArgumentException("Not enough stock");
         }
         stockQuantity -= quantity;
-        System.out.println("PaperBook " + getTitle() + " has been bought successfully");
+        System.out.println("PaperBook " + getTitle() + " has been bought successfully"+"with quantity= " + quantity+"remaining stock= " + stockQuantity);
+
+
         shipTo(address);
         return getPrice() * quantity;
     }
